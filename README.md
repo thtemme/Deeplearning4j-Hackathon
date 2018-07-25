@@ -1,13 +1,13 @@
 # Deeplearning4j-Hackathon
 
 This repository contains a skeleton project for the Deeplearning4j-Hackathon. The hackathon challenge is to implement a Convolutional Neural Network for image classification which is able to distinct images of cats and dogs.
-Please follow the installation instructions and the data download (Step 0 and Step 1) in front of the Hackathon!
+Please follow the installation instructions and the data download (Step 0 and Step 1) before the Hackathon!
 
 If you get stuck at any point in this hackathon don't hesitate to ask the friendly OPITZ guys which are happy to help!
 The Deeplearning4j website also provides great documentation with many examples and tutorials. Just have a look:
 https://deeplearning4j.org/documentation
 
-#Step 0 - Setup your machine learning Dev environment
+# Step 0 - Setup your machine learning Dev environment
 
 ## Install JDK 8 64 Bit:
 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
@@ -89,16 +89,18 @@ Fullfill implementation of method "splitUpTrainingAndTestSet()".
 Finally start the main method in DataPreprocessing. Check if everything works fine. If yes, you will have two directories under resources: "PetImages" for our Training Set and "ValidationPetImages" for our test set.
 There should be ~10.000 Cats and ~10.000 Dogs for the training set and ~2500 Cats and ~2500 Dogs for the test set.
 
-# Step 3 - Set up training pipeline
+# Step 3 - Check training pipeline
 
-Now we have to setup our training pipeline. Have a look at "CatsDogsClassification". First we have to create an iterator for the training data we want to use. Implement a method generateRecordReaderDataSetIterator which takes a directory as input and returns a "RecordReaderDataSetIterator" as output. You will find hints in the code.
+Now we have to setup our training pipeline. Have a look at "CatsDogsClassification". First we have to create an iterator for the training data we want to use. This is done in method generateRecordReaderDataSetIterator() which takes a directory as input and returns a "RecordReaderDataSetIterator" as output. See what this function does and how it works.
 
-A basic neural network for image classification is returned as "MultiLayerNetwork" in method "hackathonBasicNetwork". As you can see the whole network architecture is setup easily via Builder pattern.
+A basic neural network for image classification is returned as "MultiLayerNetwork" in method "hackathonBasicNetwork()". As you can see the whole network architecture is setup easily via Builder pattern.
 Use this network as starting point to see if everything is working fine. The network is not very good. We will improve it in the next step.
 
 As you can see in the method trainModel() the model is trained easily just by calling network.fit(). 
 
-After a training iteration we would like to see the performance of the trained model. Therefore we have to implement a method "evaluateModel" which prints out the performance of the trained model on the Validation set!
+After a training iteration we would like to see the performance of the trained model. Therefore we have to implement a method "evaluateModel()" which prints out the performance of the trained model on the Validation set.
+
+But hold on, there's an issue within this method! Can you find it and fix it?
 
 
 # Step 4 - Run the example and check if everything works fine.
@@ -109,17 +111,19 @@ If you receive an error message, please ask one of the OPITZ guys. :-)
 # Step 5 - Serialize the trained model after each training epoch:
 You may want to save your trained model for later evaluation or further training. Therefore you can use the Deeplearning4j ModelSerializer to save the model after each training iteration.
 
+Also you should use the ModelSerializer to load a model on application startup to resume training. Also you can use the loaded model directly for classification.
+
 # Step 6 - Improve the neural network
 The hackathon basic network is a very simple one and not really good. There are much better network architecturs out there. These are some examples:
 You may have a look at AlexNet, which is a well described one to start: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 Try to setup an improved network for yourself.
 
-If you get stuck at this point, you can also have a look at the Deeplearning4j ModelZoo (https://deeplearning4j.org/model-zoo). You can also load complete Networkconfigurations as dependency in the project. 
+If you get stuck at this point, you can also have a look at the Deeplearning4j ModelZoo (https://deeplearning4j.org/model-zoo). You can also load complete Networkconfigurations as Maven dependency in the project.
 
 # Step 7 - Train your improved network
 
-If you are done with network setup, start the training. Please notice that effective training will take some time (hours until days), especially if you are not using CUDA. So start the training and then it may be time for a bigger break at this point.
-You can have a look at the network performance on the validation set from time to time.
+If you are done with network setup, start the training. Please notice that effective training will take some time (hours until days), especially if you are not using CUDA. So start the training and then it may be time for some sausages and coffee or beer at this point.
+You can have a look at the network performance on the test set from time to time.
 
 # Step 8 - Still not have enough?
 
