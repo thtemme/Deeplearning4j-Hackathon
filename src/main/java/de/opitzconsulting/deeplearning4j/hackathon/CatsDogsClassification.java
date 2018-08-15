@@ -59,7 +59,7 @@ public class CatsDogsClassification {
 
         RecordReaderDataSetIterator trainDataIter = generateRecordReaderDataSetIterator(trainingPathDir);
 
-        MultiLayerNetwork network = hackathonBasicNetwork();;
+        MultiLayerNetwork network = hackathonBasicNetwork();
         log.info("Get model...");
         try {
             //ToDo: Try to load saved model, if it is available in file "modelFileName".

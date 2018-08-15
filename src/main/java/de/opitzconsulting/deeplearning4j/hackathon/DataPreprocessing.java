@@ -68,15 +68,13 @@ public class DataPreprocessing {
     //Hint: You can use the functionality of the classes:
     //FileSplit, InputSplit and RandomPathFilter
     //You can find the documentation here:
-    //https://deeplearning4j.org/simple-image-load-transform#specifying-particulars-before-image-load
+    //https://deeplearning4j.org/docs/latest/datavec-overview
     private static void splitUpTrainingAndTestSet() {
 
         File mainPath = new File(System.getProperty("user.dir"), originalDir);
-        //Some image data are corrupt. Detect them and delete files
-        //ValidateImageFileSplit fileSplit = new ValidateImageFileSplit(mainPath, new String[] {"jpg"}, rng, 80);
-        //fileSplit.removeCorruptImageFiles();
         //RandomPathFilter pathFilter = ...
-        //...
+        //FileSplit fs = ...
+        //Hint: You can use sample()-function of FileSplit to create the InputSplit.
         //InputSplit testData = ...
 
         //Move validation data to different directory
